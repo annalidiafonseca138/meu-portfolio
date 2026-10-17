@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio | Anna Lídia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="perfil">
+
+        <!-- Decorações originais -->
+        <div class="moldura"></div>
+        <span class="decoracao brilho-topo">✧</span>
+        <span class="decoracao coracao-topo">♡</span>
+        <span class="decoracao brilho-baixo">✧</span>
+
+        <!-- PÁGINA INICIAL -->
+        <section id="pagina-inicial" class="pagina-inicial">
+
+            <img
+                src="minha-foto.jpeg"
+                alt="Foto de Anna Lídia"
+                class="foto-perfil"
+            >
+
+            <h1>Anna Lídia Fonseca</h1>
+
+            <p class="descricao">
+                Desenvolvedora Front-end no Programa Trilhas 2026
+            </p>
+
+            <div class="divisor-fofo">♡ ✧ ♡</div>
+
+            <nav class="links" aria-label="Menu do portfólio">
+
+                <button type="button" class="botao-aba"
+                    onclick="abrirAba('sobre')">
+                    <span class="detalhe">✧</span>
+                    <span>Sobre mim</span>
+                    <span class="coracao">♡</span>
+                </button>
+
+                <button type="button" class="botao-aba"
+                    onclick="abrirAba('projetos')">
+                    <span class="detalhe">✧</span>
+                    <span>Meus projetos</span>
+                    <span class="coracao">♡</span>
+                </button>
+
+                <button type="button" class="botao-aba"
+                    onclick="abrirAba('certificados')">
+                    <span class="detalhe">✧</span>
+                    <span>Meus certificados</span>
+                    <span class="coracao">♡</span>
+                </button>
+
+            </nav>
+
+            <p class="rodape">♡</p>
+
+        </section>
+
+        <!-- TELA: SOBRE MIM -->
+        <section id="tela-sobre" class="tela-interna"
+            aria-labelledby="titulo-sobre" hidden>
+
+            <h2 id="titulo-sobre">♡ Sobre mim ♡</h2>
+
+            <div class="divisor-fofo">✧ ♡ ✧</div>
+
+            <p>
+                Olá! Meu nome é Anna Lídia Fonseca.
+                Sou estudante do Trilhas 2026.
+                Faço ensino médio técnico na Federal-Colun.
+                Gosto de tecnologia, sou criativa e estou
+                em busca de conhecer coisas novas!
+            
+            </p>
+
+            <button type="button" class="botao-voltar"
+                onclick="voltarInicio()">
+                ♡ Voltar
+            </button>
+
+        </section>
+
+        <!-- TELA: PROJETOS -->
+        <section id="tela-projetos" class="tela-interna"
+            aria-labelledby="titulo-projetos" hidden>
+
+            <h2 id="titulo-projetos">✧ Meus projetos ✧</h2>
+
+            <div class="divisor-fofo">♡ ✧ ♡</div>
+
+            <p>
+                Em desenvolvimento!♡
+            </p>
+
+            <p>
+                Em breve, você poderá conhecer meus trabalhos
+                e acompanhar minha evolução na programação.
+            </p>
+
+            <button type="button" class="botao-voltar"
+                onclick="voltarInicio()">
+                ♡ Voltar
+            </button>
+
+        </section>
+
+        <!-- TELA: CERTIFICADOS -->
+        <section id="tela-certificados" class="tela-interna"
+            aria-labelledby="titulo-certificados" hidden>
+
+            <h2 id="titulo-certificados">🎓 Meus certificados</h2>
+
+            <div class="divisor-fofo">♡ ✧ ♡</div>
+
+            <p>
+                Em desenvolvimento!♡
+            </p>
+
+            <button type="button" class="botao-voltar"
+                onclick="voltarInicio()">
+                ♡ Voltar
+            </button>
+
+        </section>
+
+    </main>
+
+    <script>
+        function abrirAba(nome) {
+            const inicio = document.getElementById('pagina-inicial');
+
+            const telas = document.querySelectorAll('.tela-interna');
+
+            inicio.hidden = true;
+
+            telas.forEach(function(tela) {
+                tela.hidden = true;
+            });
+
+            const telaEscolhida = document.getElementById('tela-' + nome);
+
+            if (telaEscolhida) {
+                telaEscolhida.hidden = false;
+            }
+        }
+
+        function voltarInicio() {
+            const inicio = document.getElementById('pagina-inicial');
+
+            const telas = document.querySelectorAll('.tela-interna');
+
+            telas.forEach(function(tela) {
+                tela.hidden = true;
+            });
+
+            inicio.hidden = false;
+        }
+    </script>
+
+</body>
+</html>
