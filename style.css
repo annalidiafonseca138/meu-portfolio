@@ -1,0 +1,401 @@
+/* Configuração geral */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    margin: 0;
+    min-height: 100vh;
+    padding: 35px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: #60476b;
+    background: linear-gradient(
+        135deg,
+        #ffe8f2,
+        #f6e8ff,
+        #fff4f9
+    );
+}
+
+/* Moldura degradê arredondada em toda a tela */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 8px;
+    padding: 7px;
+    border-radius: 28px;
+    background: linear-gradient(
+        135deg,
+        #800020,
+        #d96c9d,
+        #e8b9ef,
+        #b995d6,
+        #800020
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Cartão principal */
+main.perfil {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 440px;
+    margin: auto;
+    padding: 36px 25px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.94);
+    border: 2px solid #e9b8e9;
+    border-radius: 30px;
+    box-shadow: 0 14px 38px rgba(157, 104, 173, 0.18);
+}
+
+/* Borda interna do cartão */
+.moldura {
+    position: absolute;
+    z-index: -1;
+    inset: 6px;
+    border: 1px solid #f5d3ed;
+    border-radius: 24px;
+    pointer-events: none;
+}
+
+/* Laços, corações e brilhos */
+.decoracao {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+}
+
+.laco-topo {
+    top: -22px;
+    left: -12px;
+    font-size: 43px;
+    transform: rotate(-15deg);
+}
+
+.brilho-topo {
+    top: 24px;
+    left: 20px;
+    color: #b878ce;
+    font-size: 28px;
+}
+
+.coracao-topo {
+    top: 21px;
+    right: 20px;
+    color: #e795c2;
+    font-size: 29px;
+}
+
+.laco-baixo {
+    bottom: -22px;
+    right: -12px;
+    font-size: 40px;
+    transform: rotate(15deg);
+}
+
+.brilho-baixo {
+    bottom: 18px;
+    left: 20px;
+    color: #c38bd5;
+    font-size: 25px;
+}
+
+/* Foto de perfil com borda bordô */
+.foto-perfil {
+    display: block;
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    margin: 8px auto 18px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #800020;
+    outline: 2px solid #e3b5d9;
+    box-shadow: 0 5px 18px rgba(128, 0, 32, 0.15);
+}
+
+/* Nome */
+.perfil h1 {
+    width: 100%;
+    margin: 0 0 10px;
+    color: #9553aa;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+/* Descrição */
+.descricao {
+    margin: 0;
+    color: #8b6c98;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Divisor decorativo */
+.divisor-fofo {
+    margin-top: 12px;
+    color: #df91c6;
+    font-size: 22px;
+    letter-spacing: 4px;
+}
+
+/* Área dos botões */
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 340px;
+    gap: 12px;
+    margin: 24px auto 0;
+}
+
+/* Botões com borda bordô */
+.botao-aba {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr) 24px;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 15px 14px;
+    box-sizing: border-box;
+    color: #60476b;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    cursor: pointer;
+    background: linear-gradient(
+        135deg,
+        #fffafd,
+        #fff0f8
+    );
+    border: 2px solid #800020;
+    border-radius: 17px;
+    box-shadow: 0 4px 10px rgba(128, 0, 32, 0.08);
+    transition: 0.25s ease;
+}
+
+.botao-aba:hover {
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f8e6ff
+    );
+    transform: translateY(-3px);
+    box-shadow: 0 7px 16px rgba(128, 0, 32, 0.15);
+}
+
+.botao-aba:focus-visible {
+    outline: 3px solid #c995df;
+    outline-offset: 3px;
+}
+
+/* Símbolos nos botões */
+.detalhe {
+    justify-self: start;
+    color: #ac70c7;
+    font-size: 23px;
+}
+
+.coracao {
+    justify-self: end;
+    color: #df91b8;
+    font-size: 23px;
+}
+
+/* Conteúdo das abas */
+.conteudo-sobre {
+    display: none;
+    width: 100%;
+    margin: 0 0 5px;
+    padding: 18px;
+    color: #654773;
+    text-align: left;
+    background:
+        linear-gradient(#fff3f8, #f8efff) padding-box,
+        linear-gradient(
+            135deg,
+            #800020,
+            #e5a4cb,
+            #b995d6
+        ) border-box;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(173, 114, 200, 0.08);
+    animation: aparecer 0.25s ease;
+}
+
+.conteudo-sobre.mostrar {
+    display: block;
+}
+
+.conteudo-sobre h2 {
+    margin: 0 0 10px;
+    color: #9553aa;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.conteudo-sobre p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.conteudo-sobre p:last-child {
+    margin-bottom: 0;
+}
+
+/* Animação de abertura */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rodapé */
+.rodape {
+    margin: 22px 0 0;
+    color: #b17ac9;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 420px) {
+    body {
+        padding: 28px 13px;
+    }
+
+    main.perfil {
+        padding: 32px 17px 25px;
+        border-radius: 25px;
+    }
+
+    .perfil h1 {
+        font-size: 25px;
+    }
+
+    .botao-aba {
+        padding: 14px 11px;
+        font-size: 14px;
+    }
+
+    .laco-topo {
+        left: -7px;
+        font-size: 36px;
+    }
+
+    .laco-baixo {
+        right: -7px;
+        font-size: 35px;
+    }
+}
+
+/* Respeita quem prefere menos animações */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Organização das páginas internas */
+.pagina-inicial {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pagina-inicial[hidden],
+.tela-interna[hidden] {
+    display: none !important;
+}
+
+.tela-interna {
+    width: 100%;
+    padding: 25px 8px 10px;
+    text-align: center;
+    animation: aparecer 0.3s ease;
+}
+
+.tela-interna h2 {
+    margin: 0 0 12px;
+    color: #9553aa;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.tela-interna p {
+    margin: 12px 0;
+    padding: 12px;
+    color: #654773;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: left;
+    overflow-wrap: anywhere;
+    background: linear-gradient(135deg, #fff3f8, #f8efff);
+    border: 1px solid #e8b9df;
+    border-radius: 14px;
+}
+
+.botao-voltar {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    padding: 13px 18px;
+    color: #60476b;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    background: linear-gradient(135deg, #fffafd, #f6e8ff);
+    border: 2px solid #800020;
+    border-radius: 17px;
+    box-shadow: 0 4px 10px rgba(128, 0, 32, 0.08);
+    transition: 0.25s ease;
+}
+
+.botao-voltar:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ffffff, #f8e6ff);
+    box-shadow: 0 7px 16px rgba(128, 0, 32, 0.15);
+}
+
+.botao-voltar:focus-visible {
+    outline: 3px solid #c995df;
+    outline-offset: 3px;
+}
